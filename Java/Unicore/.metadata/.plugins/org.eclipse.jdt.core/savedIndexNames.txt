@@ -1,0 +1,10 @@
+INDEX VERSION 1.126+C:\Users\Elias\uniworks\Java\Unicore\.metadata\.plugins\org.eclipse.jdt.core
+1406863405.index
+288844497.index
+833362206.index
+1797912458.index
+1562797933.index
+3900311061.index
+1764260089.index
+4199800501.index
+2097304735.index
