@@ -11,7 +11,9 @@ public class Test extends ConsoleCommand {
 	public void run() {
 		super.run();
 		
-		System.out.println("TEST SUCCESFULL");
+		base.printAtConsole("TEST SUCCESFULL");
+		
+		base.getConsole().sayEnd();
 	}
 	
 }

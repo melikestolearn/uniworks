@@ -27,10 +27,13 @@ public class ConsoleGui extends JFrame {
     private JScrollPane jScrollPane1;
     
     /** Creates new form Console */
-    public ConsoleGui(Base b) {
+    public ConsoleGui(Console con) {
     	initComponents();
-        base = b;
-    	console = b.getConsole();	//check if right
+    	console = con;
+    	base = con.getBase();
+    	base.regGui(this);
+    	console.regGui(this);
+    	printAt(console.getDefaultKey(), true);
     	
     	setVisible(true);
     }
@@ -69,35 +72,37 @@ public class ConsoleGui extends JFrame {
         });
     }
 	private void consoleKeyTyped(KeyEvent evt){
-    	if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
+		if(consoleArea.getCaretPosition()<lastCommandPosition)
+			consoleArea.setCaretPosition(consoleArea.getDocument().getLength());
+		if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
     		inputHandler();
     	}
+		else if(evt.getKeyCode()==KeyEvent.VK_BACK_SPACE)
+			if(consoleArea.getDocument().getLength()-lastCommandPosition<1)
+				evt.consume();
     }
-	
+
 	private void inputHandler() {
 		String line = null;
+		
 		try {
 			line = consoleArea.getText(lastCommandPosition, consoleArea.getDocument().getLength()-lastCommandPosition);
 		} catch (BadLocationException e) {
 			throw new RuntimeException(e);
 		}
-		lastCommandPosition = consoleArea.getCaretPosition()+1;
+		
+		lastCommandPosition = consoleArea.getDocument().getLength();
 		
 		System.out.println(line);	//@REMOVE
 		
 		console.exe(line.split("\\s+"));
 	}
-	
-//    /** TEMPORARLY
-//     * @param args the command line arguments
-//     */
-//    public static void main(String args[]) {
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//
-//            public void run() {
-//                new ConsoleGui(new Base()).setVisible(true);
-//            }
-//        });
-//    }
+	public synchronized void printAt(String output, boolean isKey) {
+		if(isKey)
+			consoleArea.append(output);
+		else
+			consoleArea.append(output +"\n");
+		lastCommandPosition = consoleArea.getDocument().getLength();
+		consoleArea.setCaretPosition(lastCommandPosition);
+	}
 }

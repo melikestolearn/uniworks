@@ -1,0 +1,50 @@
+package console;
+
+import gui.console.ConsoleGui;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import main.Base;
+
+public class Console {
+
+	private final Map<String, ConsoleCommand> consoleCommands;
+	
+	private final Base base;
+	
+	private final ConsoleGui gui;
+	
+	private String[] args = new String[10];
+	
+	public Console(Base b) {
+		base = b;
+		gui = b.getConsoleGui();
+		consoleCommands = new HashMap<String, ConsoleCommand>();
+		initMap();
+
+	}
+	
+	private void initMap() {
+		consoleCommands.put("EstablishConnection", new EstConnection(base)); //FALSCH!!
+		consoleCommands.put("test", new Test(base));
+		
+	}
+	
+	public synchronized void exe(String[] objs) {
+		args = objs;
+		ConsoleCommand conscom = consoleCommands.get(args[0]);
+		if(conscom!=null)
+			conscom.start();
+		else
+			throw new NullPointerException();
+	}
+	
+	public String[] getArgs() {
+		return args;
+	}
+	public Base getBase() {
+		return base;
+	}
+	
+}

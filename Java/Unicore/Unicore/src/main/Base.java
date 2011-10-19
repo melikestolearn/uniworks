@@ -1,5 +1,6 @@
 package main;
 
+import gui.console.ConsoleGui;
 import connection.Connector;
 import console.Console;
 
@@ -7,13 +8,25 @@ import console.Console;
  * Every part build up here.
  */
 public class Base {
-	private Connector connector;
+	
+	private String username = "root";
+	
+	private final Connector connector;
 
-	private Console console;
+	private final Console console;
+	
+	private ConsoleGui consoleGui;
 
 	public Base() {
-		connector = new Connector(this, System.in);
+		//connector = new Connector(this, System.in);
+		connector = null;
 		console = new Console(this);
+		
+		java.awt.EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				consoleGui = new ConsoleGui(console);
+			}
+		});
 	}
 	
 	public Console getConsole() {
@@ -21,5 +34,18 @@ public class Base {
 	}
 	public Connector getConnector() {
 		return connector;
+	}
+
+	public void regGui(ConsoleGui g) {
+		consoleGui = g;
+	}
+	public ConsoleGui getConsoleGui() {
+		return consoleGui;
+	}
+	public void printAtConsole(String output) {
+		consoleGui.printAt(output, false);
+	}
+	public String getUsername() {
+		return username;
 	}
 }
