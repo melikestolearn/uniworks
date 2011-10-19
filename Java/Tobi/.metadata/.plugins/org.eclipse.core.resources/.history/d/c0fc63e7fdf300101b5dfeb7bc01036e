@@ -1,0 +1,8 @@
+/*
+ * runs the server establishes the connection then launches the game
+ */
+public class Run {
+	public static void main(String[] args){
+		TicTacToe game = new TicTacToe();
+	}
+}

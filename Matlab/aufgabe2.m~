@@ -1,0 +1,9 @@
+function m = aufgabe2(ordnung) %returns a matrix with some zeros
+m = ones(ordnung);
+m = m + eye(ordnung,ordnung);
+for counter = ordnung-1;counter>=2;counter-1;
+    v = 1:ordnung-counter;
+    v (1:end) = 1;
+    m = m-diag(v,counter);
+    m = m-diag(v,-counter);
+end

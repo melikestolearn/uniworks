@@ -1,0 +1,13 @@
+package player;
+
+public class Player {
+	private bool player;
+	private char symbol;
+		public Player(bool player){
+			this.player = player;
+			if(player==false)
+				symbol = 'O';
+			else if (player==true)
+				symbol = 'X';
+		}
+}
