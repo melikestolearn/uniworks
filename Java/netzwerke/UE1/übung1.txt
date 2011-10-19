@@ -1,0 +1,30 @@
+Anhang 
+	a)Protokolle: DNS ,TCP,HTTP,
+	b)Protokolle: DNS,TCP,FTP,FTP-DATA,DHCP-v6,ARP,
+	Der Server verfügt über 12gb ram 
+	(220-This is a Linux PC (Dell PE-2650, 2 CPUs P4/2800, 12 GB RAM)\r\n)
+	c)Protokolle: DNS,ICMP
+
+
+DNS:Domain Name System Schicht: (7)Application
+beschreibung:Seine Hauptaufgabe ist die Beantwortung von Anfragen zur Namensauflösung. löst www-Adresse in die
+		zugehörige IP auf.
+
+TCP:Transmission Control Protocol Schicht: (4)Transport
+beschreibung: Stellt eine verbindung zwischen zwei endpunkten(Sockets) her.Auf dieser können in beide richtungen daten 			übertragen werden.
+HTTP:Hypertext Transfer Protocol Schicht: (7)Application
+beschreibung:Übertragung von Daten über ein Netzwerk. Es wird hauptsächlich eingesetzt, um Webseiten aus dem World 			Wide Web (WWW) in einen Webbrowser zu laden.
+FTP:File Transfer Protocol Schicht. (7)Application
+beschreibung: Wird genutzt um Saten vom Server zum Client herunterzuladen oder umgekehrt hochzuladen auch um von 			clientgesteuert von Server zu Server zu laden(berbindung zu File Exchange Protokoll?).
+FTP-DATA: FTP über port 20
+DHCP:Dynamic Host Configuration Protocol Schicht:(5-7)Application
+beschreibung: ermöglicht die Zuweisung der Netzwerkkonfiguration an Clients durch einen Server.
+DHCP-v6: eine Ipv6 addresse.
+ARP:Address Resolution Protocol Schicht:(3)Network
+beschreibung:Das Address Resolution Protocol (ARP) ist ein Netzwerkprotokoll, das zu einer Netzwerkadresse der 			Internetschicht die physikalische Adresse (Hardwareadresse) der Netzzugangsschicht ermittelt und 			diese Zuordnung gegebenenfalls in den so genannten ARP-Tabellen der beteiligten Rechner hinterlegt. 			Es wird fast ausschließlich im Zusammenhang mit IPv4-Adressierung auf Ethernet-Netzen, also zur 		Ermittlung von MAC-Adressen zu gegebenen IP-Adressen verwendet, obwohl es nicht darauf beschränkt 			ist. Für IPv6 wird diese Funktionalität nicht von ARP, sondern durch das Neighbor Discovery Protocol 			(NDP) bereitgestellt.
+ICMP:Internet Control Message Protocol Schicht:(3,4?)Network or Transport
+beschreibung: dient in Rechnernetzwerken dem Austausch von Informations- und Fehlermeldungen über das Internet 			Protokoll in der Version 4 (IPv4)
+
+
+
+
