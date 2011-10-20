@@ -1,0 +1,20 @@
+package connection;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+	
+public class Client {
+	Socket internet;
+	Socket routing;
+	public Client(String str,int port,String str2,int port2) throws UnknownHostException, IOException{
+		internet = new Socket(str,port);
+		routing = new Socket(str2,port2);
+	}
+	public getInputStream is(int port) throws IOException{
+		if(internet.getLocalPort()==port)
+			return internet.getInputStream();
+		else
+			return routing.getInputStream();
+	}
+}

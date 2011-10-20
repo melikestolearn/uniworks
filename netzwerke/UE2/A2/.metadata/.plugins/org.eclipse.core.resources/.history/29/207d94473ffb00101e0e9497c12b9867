@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_rFG0wPsxEeCRY836D0W2vw" type="UMLActivity" name="default.umlact" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_OOHJYPszEeCRY836D0W2vw" type="2026" fontName="Sans">
+    <children xmi:type="notation:DecorationNode" xmi:id="_OOPsQPszEeCRY836D0W2vw" type="5030"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_OOPsQfszEeCRY836D0W2vw" type="5093"/>
+    <element xmi:type="uml:Activity" href="default.uml#_OHVL8PszEeCRY836D0W2vw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OOHwcPszEeCRY836D0W2vw" x="192" y="72" width="121" height="73"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_rFHb0PsxEeCRY836D0W2vw"/>
+  <element xmi:type="uml:Package" href="default.uml#_q6guUPsxEeCRY836D0W2vw"/>
+</notation:Diagram>
