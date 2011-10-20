@@ -1,5 +1,6 @@
 package gui.console;
 
+import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -33,7 +34,7 @@ public class ConsoleGui extends JFrame {
     	base = con.getBase();
     	base.regGui(this);
     	console.regGui(this);
-    	printAt(console.getDefaultKey(), true);
+    	printAt(console.getPrompt(), true);
     	
     	setVisible(true);
     }
@@ -46,7 +47,17 @@ public class ConsoleGui extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Console");
         setResizable(false);
-
+        
+        consoleArea.setLineWrap(true);
+        //consoleArea.setWrapStyleWord(true); Maybe wrap on whitespaces
+        
+        consoleArea.setBackground(Color.BLACK);
+        consoleArea.setForeground(Color.WHITE);
+        consoleArea.setSelectedTextColor(Color.BLACK);
+        consoleArea.setSelectionColor(Color.WHITE);
+        consoleArea.setCaretColor(Color.WHITE);
+        
+        
         jScrollPane1.setName("jScrollPane1");
         
         consoleArea.setName("consoleArea");
@@ -56,11 +67,11 @@ public class ConsoleGui extends JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
         pack();

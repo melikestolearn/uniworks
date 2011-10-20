@@ -34,6 +34,8 @@ public class Connector {
 		final ServerSocket myServer = new ServerSocket(defaultPort);
 		
 		friendSocket = myServer.accept();
+		
+		myServer.close();
 	}
 	
 	public void connect(String hostname) throws UnknownHostException, IOException {
@@ -43,6 +45,9 @@ public class Connector {
 	}
 	public String readLineFromKeyboard() throws IOException {
 		return myKeyboardReader.readLine();
+	}
+	public void disconnect() throws IOException {
+		friendSocket.close();
 	}
 
 }
