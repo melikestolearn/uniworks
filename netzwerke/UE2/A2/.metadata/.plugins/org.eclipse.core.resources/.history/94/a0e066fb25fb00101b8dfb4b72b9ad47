@@ -1,0 +1,11 @@
+package filter;
+
+import java.io.FilterInputStream;
+import java.io.InputStream;
+
+public class WordChangeFilter extends FilterInputStream {
+	public WordChangeFilter(InputStream in) {
+		super(in);
+	}
+	
+}
