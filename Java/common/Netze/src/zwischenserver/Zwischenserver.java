@@ -28,7 +28,7 @@ public class Zwischenserver {
 		this.begriff = begriff;
 		this.ersatzbegriff = ersatzbegriff;
 		
-		log = new File("log.txt");
+		log = new File("output\\log.txt");
 		fileWriter = new FileWriter(log);
 		serverSocket = new ServerSocket(port);
 	}
@@ -38,8 +38,12 @@ public class Zwischenserver {
 		{
 			client = serverSocket.accept();
 			
+			fileWriter.write("Connected. \n");
+			
 			final String request = recieveRequest(client);
 			send(client, request);
+			
+			fileWriter.write("End.");
 			
 			client.close();
 		}
@@ -54,28 +58,31 @@ public class Zwischenserver {
 		
 		String header = "";
 		String line = clientReader.readLine();
-		
+		//
 		while(!(line.isEmpty())) {		// Das letzte \n wird nicht gespeichert
 			header += line;
 			line = clientReader.readLine();
 		}
-		
+		//header+= line;
 		
 		System.out.println(header);
 		
-		fileWriter.write("HEADER" +header);
+		fileWriter.write("HEADER \n" +header);
+		
+		client.shutdownInput();
 		return header;
 	}
 	
 	private void send(Socket client, String header) throws IOException {
 		final OutputStreamWriter clientWriter = new OutputStreamWriter(client.getOutputStream());
 		
-		String targetHostInput = "";
-		String thLine;
+		
 		final Socket th = new Socket(targetHost, 80);
 		BufferedReader thReader = new BufferedReader(new InputStreamReader(th.getInputStream()));
 		PrintWriter out = new PrintWriter(new OutputStreamWriter(th.getOutputStream()));
-	
+		String targetHostInput = "";
+		String thLine;
+		
 		out.println(header);
 		out.println();
 		out.flush();
@@ -89,15 +96,26 @@ public class Zwischenserver {
 		thReader.close();
 		out.close();
 		
+		final File originalInput = new File("output\\original.html");
+		final FileWriter fwo = new FileWriter(originalInput);
+		fwo.write(targetHostInput);
+		fwo.close();
+		
+		
 		System.out.println(targetHostInput);
 		
 		final String replacedInput = targetHostInput.replaceAll(begriff, ersatzbegriff);
 		
+		final File replacedInputFile = new File("output\\replaced.html");
+		final FileWriter rwo = new FileWriter(replacedInputFile);
+		rwo.write(replacedInput);
+		rwo.close();
+		
 		clientWriter.write(replacedInput);
 		clientWriter.flush();
 		
-		fileWriter.write("\n\n INPUT" +targetHostInput);
-		fileWriter.write("\n\n OUTPUT" +replacedInput);
+		fileWriter.write("\n\n INPUT: \n" +targetHostInput);
+		fileWriter.write("\n\n OUTPUT: \n" +replacedInput);
 
 		
 		th.close();

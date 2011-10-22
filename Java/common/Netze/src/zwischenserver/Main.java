@@ -22,7 +22,7 @@ public class Main {
 //		Thread.sleep(5000);
 //		
 //		
-//		String get = "GET /index.html HTTP/1.1\n";
+//		String get = "GET /index.html HTTP/1.1\n\n";
 //		Socket s = new Socket("127.0.0.1", 8082);
 //		OutputStreamWriter w = new OutputStreamWriter(s.getOutputStream());
 //		w.write(get);
