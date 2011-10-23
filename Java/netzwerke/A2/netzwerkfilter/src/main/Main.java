@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class Main {
 	public static void main(String[] args) throws IOException{
-		Proxy proxy = new Proxy("www.hm.edu",8082, "Informatik", "Rechnerwissenschaften");
+		Proxy proxy = new Proxy("cs.hm.edu",8082, "Informatik", "Rechnerwissenschaften");
 
 		proxy.start();
 		
@@ -22,7 +22,7 @@ public class Main {
 		Socket client = new Socket ("127.0.0.1",8082);
 		//client.getOutputStream().write(1);
 		PrintWriter pw = new PrintWriter(client.getOutputStream());
-		pw.println("GET / HTTP/1.1\nHost: www.hm.edu:80\n\n");
+		pw.println("GET / HTTP/1.1\r\nHost: cs.hm.edu\r\n");//host angeben kann auch plficht sein kp warum
 		pw.flush();
 		pw.close();
 		System.out.println("end");
