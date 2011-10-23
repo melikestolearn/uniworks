@@ -1,0 +1,19 @@
+package filter;
+
+import java.io.BufferedReader;
+import java.io.Reader;
+
+public class WordChangeFilter extends BufferedReader {
+
+	public WordChangeFilter(Reader in) {
+		super(in);
+	}
+
+	
+	public String readLine()throws IOException{
+		String str = super.readLine();
+		
+	}
+	
+	
+}
