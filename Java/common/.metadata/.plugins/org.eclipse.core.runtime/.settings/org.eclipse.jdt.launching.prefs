@@ -1,3 +1,3 @@
-#Wed Oct 19 18:05:51 CEST 2011
+#Sun Oct 23 21:09:41 CEST 2011
 eclipse.preferences.version=1
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1319040345603">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1319040345603" javadocURL\="http\://download.oracle.com/javase/6/docs/api/" name\="jdk1.6.0_27" path\="C\:\\Program Files\\Java\\jdk1.6.0_27"/>\r\n</vmType>\r\n</vmSettings>\r\n
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1319396979368">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1319396979368" javadocURL\="http\://java.sun.com/javase/6/docs/api/" name\="jdk1.6.0_29" path\="C\:\\Program Files\\Java\\jdk1.6.0_29"/>\r\n</vmType>\r\n</vmSettings>\r\n
