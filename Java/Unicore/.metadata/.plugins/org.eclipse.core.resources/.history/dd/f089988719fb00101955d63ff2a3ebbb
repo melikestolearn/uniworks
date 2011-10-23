@@ -1,7 +1,0 @@
-package console.commands;
-
-import console.ConsoleCommand;
-
-public class Help extends ConsoleCommand {
-
-}

@@ -1,8 +1,0 @@
-package console.commands;
-
-import console.ConsoleCommand;
-
-public class showPicture extends ConsoleCommand {
-
-	
-}
