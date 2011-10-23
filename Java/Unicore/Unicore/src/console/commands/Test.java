@@ -5,16 +5,15 @@ import main.Base;
 
 public class Test extends ConsoleCommand {
 
-	public Test(Base b) {
-		super(b);
+	public Test(Base b, String[] args) {
+		super(b, args);
 	}
 	
 	public void run() {
-		super.run();
-		
+
 		base.printAtConsole("TEST SUCCESFULL");
 		
-		base.getConsole().sayEnd();
+		base.getConsoleHead().informExeEnd();
 	}
 	
 }

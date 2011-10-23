@@ -6,12 +6,11 @@ import functions.defaultCanvas.EasyFrame;
 import functions.defaultCanvas.Playground;
 
 public class ShowPicture extends ConsoleCommand {
-	public ShowPicture(Base b) {
-		super(b);
+	public ShowPicture(Base b, String[] args) {
+		super(b, args);
 	}
 	
 	public void run() {
-		super.run();
 		
 		java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -19,6 +18,6 @@ public class ShowPicture extends ConsoleCommand {
             }
         });
 		
-		base.getConsole().sayEnd();
+		base.getConsoleHead().informExeEnd();
 	}
 }

@@ -3,8 +3,9 @@ package connection;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PipedInputStream;
+import java.io.PipedOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -20,14 +21,24 @@ public class Connector {
 	
 	private int usedPort;
 
-	private InputStream input;
-	private OutputStream output;
+//	private InputStream input;
+//	private OutputStream output;
+	
+	
+	private PipedInputStream consolePipedInput;
+	private PipedOutputStream consolePipedOutput;
 	
 	private BufferedReader myKeyboardReader;
 	
-	public Connector(Base b, InputStream myInput) {
-		myKeyboardReader = new BufferedReader(new InputStreamReader(myInput));
+	public Connector(Base b) throws IOException {
+		//myKeyboardReader = new BufferedReader(new InputStreamReader(myInput));
+		
 		base = b;
+		
+		consolePipedInput = new PipedInputStream();
+		consolePipedOutput = new PipedOutputStream();
+		
+		consolePipedInput.connect(consolePipedOutput);
 	}
 	
 	public void host() throws IOException {
@@ -49,5 +60,12 @@ public class Connector {
 	public void disconnect() throws IOException {
 		friendSocket.close();
 	}
-
+	
+	public InputStream getConsoleInput() {
+		return consolePipedInput;
+	}
+	public OutputStream getConsoleOutput() {
+		return consolePipedOutput;
+	}
+	
 }

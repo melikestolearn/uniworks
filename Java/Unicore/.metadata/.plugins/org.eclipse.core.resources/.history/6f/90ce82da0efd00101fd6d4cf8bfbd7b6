@@ -1,0 +1,25 @@
+package console;
+
+import main.Base;
+
+public class ConsoleCommand extends Thread {
+	
+	protected String[] commandArgs;
+	
+	protected final Base base;
+	
+	public ConsoleCommand(Base b, String[] args) {
+		super();
+		base = b;
+		commandArgs = args;
+	}
+	
+	protected void loadObjects() {
+		commandArgs =  base.getConsoleHead().getCommandArgs();
+	}
+	
+	public void run() {
+		loadObjects();
+	}
+	
+}

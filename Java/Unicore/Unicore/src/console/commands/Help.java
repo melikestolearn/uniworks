@@ -5,17 +5,16 @@ import console.ConsoleCommand;
 
 public class Help extends ConsoleCommand {
 
-	public Help(Base b) {
-		super(b);
+	public Help(Base b, String[] args) {
+		super(b, args);
 	}
 	
 	public void run() {
-		super.run();
 		
 		base.printAtConsole("\n Commands: \n");
-		base.printAtConsole(base.getConsole().getCommands().keySet().toString());
+		base.printAtConsole(base.getConsoleHead().getCommands().keySet().toString());
 		
-		base.getConsole().sayEnd();
+		base.getConsoleHead().informExeEnd();
 	}
 	
 }

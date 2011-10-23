@@ -1,11 +1,14 @@
 package main;
 
-import gui.console.ConsoleGui;
+import gui.console.Console;
+
+import java.io.IOException;
+
 import connection.Connector;
-import console.Console;
+import console.ConsoleHead;
 
 /** This is the base of the program.
- * Every part build up here.
+ * Every part builds up here.
  */
 public class Base {
 	
@@ -13,37 +16,53 @@ public class Base {
 	
 	private final Connector connector;
 
-	private final Console console;
+	private final ConsoleHead consoleHead;
 	
-	private ConsoleGui consoleGui;
+	private Console console;
 
 	public Base() {
-		//connector = new Connector(this, System.in);
-		connector = null;
-		console = new Console(this);
+		try {
+			connector = new Connector(this);
+		} catch (IOException e) { throw new RuntimeException(e); }
+
+		consoleHead = new ConsoleHead(this);
 		
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				consoleGui = new ConsoleGui(console);
+				console = new Console(consoleHead);
 			}
 		});
 	}
 	
-	public Console getConsole() {
-		return console;
+	/** Sets the Console.
+	 * @param g The new Console set.
+	 */
+	public void regGui(Console g) {
+		console = g;
+	}
+	
+	/** Prints a line on the console.
+	 * Has the same effect as base.getConsoleGui.printAt
+	 * linefeed is true.
+	 * @param output The String to display.
+	 */
+	public void printAtConsole(String output) {
+		console.printAt(output, true);
+	}
+	
+	public void setUsername(String newName) {
+		username = newName;
+		consoleHead.changeUserPrompt(null);
+	}
+	
+	public ConsoleHead getConsoleHead() {
+		return consoleHead;
 	}
 	public Connector getConnector() {
 		return connector;
 	}
-
-	public void regGui(ConsoleGui g) {
-		consoleGui = g;
-	}
-	public ConsoleGui getConsoleGui() {
-		return consoleGui;
-	}
-	public void printAtConsole(String output) {
-		consoleGui.printAt(output, false);
+	public Console getConsole() {
+		return console;
 	}
 	public String getUsername() {
 		return username;
