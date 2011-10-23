@@ -1,0 +1,10 @@
+INDEX VERSION 1.126+C:\Users\Aseru\uniworks\Java\Unicore\.metadata\.plugins\org.eclipse.jdt.core
+1631297119.index
+1009167369.index
+2958382641.index
+2557047981.index
+4199800501.index
+3422390562.index
+1269498145.index
+4049015964.index
+3705612354.index
