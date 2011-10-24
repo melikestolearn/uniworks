@@ -60,6 +60,7 @@ public class ConsoleHead {
 	
 	public void informExeEnd() {
 		console.printAt(userPrompt, false);
+		//console.printPrompt();
 	}
 	public void changeUserPrompt(String newPrompt) {
 		if(newPrompt==null)

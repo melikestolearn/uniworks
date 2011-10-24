@@ -10,7 +10,7 @@ public class Main2 {
 
 	public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException  {
 		
-		String get = "GET / HTTP/1.1\nHost: www.google.com:80\n\n";
+		String get = "GET / HTTP/1.1\nHost: www.google.com:80\r\n\r\n";
 		Socket s = new Socket("129.187.110.195", 8082);
 		OutputStreamWriter w = new OutputStreamWriter(s.getOutputStream());
 		w.write(get);
