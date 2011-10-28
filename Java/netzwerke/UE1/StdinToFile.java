@@ -15,7 +15,7 @@ public class StdinToFile {
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
 		
-		File outputFile = new File ("/tmp/hh.txt");
+		File outputFile = new File ("/tmp/Output.txt");
 		PrintWriter pw = new PrintWriter(outputFile);
 
 		String str = br.readLine();

@@ -1,0 +1,29 @@
+package main;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+import connection.Proxy;
+
+
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException{
+		String parameter;
+		BufferedReader br = new BufferedReader(new FileReader("/temp/parameter.txt"));
+		parameter = br.readLine();
+		
+		Proxy proxy = new Proxy(parameter,8082, args[1], args[2]);
+		proxy.start();
+		
+		Socket client = new Socket ("127.0.0.1",8082);
+		PrintWriter pw = new PrintWriter(client.getOutputStream());
+		pw.println("GET / HTTP/1.1\r\nHost: cs.hm.edu\r\n");
+		pw.flush();
+		pw.close();
+		System.out.println("end");
+	}
+}
