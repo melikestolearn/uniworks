@@ -1,0 +1,8 @@
+a)
+Glasfaser 0,000931m pro bit bei 1000km
+Satellitenverbindung(funk)40Mibt = 41943040 bit also 80 000 000m/41943040 bit = 1,90735m pro bit 
+Drahtgebundene:
+-DSL uplink	0,01017m pro bit bei 4km
+-100BaseT 100Mbit = 104857600bit also 80m/104857600bit = 7,6294*10^-7m pro bit
+b)
+
