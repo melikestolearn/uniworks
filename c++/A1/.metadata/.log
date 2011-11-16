@@ -1,0 +1,82 @@
+!SESSION 2011-10-26 08:25:41.629 -----------------------------------------------
+eclipse.buildId=M20100211-1343
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-10-26 08:29:56.676
+!MESSAGE Indexed 'PriorityQueues' (0 sources, 76 headers) in 5.81 sec: 2,086 declarations; 2,330 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.cdt.core 4 0 2011-10-26 09:38:39.543
+!MESSAGE Error while parsing /PriorityQueues/PriorityQueue/BaseEl.cpp.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.core.parser.util.ObjectMap.<init>(ObjectMap.java:38)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPTemplateParameterMap.<init>(CPPTemplateParameterMap.java:31)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPTemplates.instantiate(CPPTemplates.java:172)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPTemplates.createBinding(CPPTemplates.java:594)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTTemplateId.createIntermediateBinding(CPPASTTemplateId.java:107)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTNameBase.resolvePreBinding(CPPASTNameBase.java:74)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.getBaseType(CPPVisitor.java:1706)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.createType(CPPVisitor.java:1667)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.createType(CPPVisitor.java:1661)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.createBinding(CPPVisitor.java:652)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.createBinding(CPPVisitor.java:244)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTName.createIntermediateBinding(CPPASTName.java:54)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTNameBase.resolveBinding(CPPASTNameBase.java:86)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor$CollectDeclarationsAction.visit(CPPVisitor.java:1313)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTName.accept(CPPASTName.java:155)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTDeclarator.accept(CPPASTDeclarator.java:144)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTSimpleDeclaration.accept(CPPASTSimpleDeclaration.java:92)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTNamespaceDefinition.accept(CPPASTNamespaceDefinition.java:116)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:266)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.getDeclarations(CPPVisitor.java:1856)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunction.resolveAllDeclarations(CPPFunction.java:150)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunction.isStatic(CPPFunction.java:361)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunction.isStatic(CPPFunction.java:356)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPSemantics$1.visit(CPPSemantics.java:858)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTName.accept(CPPASTName.java:155)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTIdExpression.accept(CPPASTIdExpression.java:74)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTFunctionCallExpression.accept(CPPASTFunctionCallExpression.java:148)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPSemantics.dependsOnTemplateFieldReference(CPPSemantics.java:842)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPSemantics.lookup(CPPSemantics.java:747)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPSemantics.resolveBinding(CPPSemantics.java:221)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.resolveBinding(CPPVisitor.java:1102)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPVisitor.createBinding(CPPVisitor.java:240)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTName.createIntermediateBinding(CPPASTName.java:54)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTNameBase.resolvePreBinding(CPPASTNameBase.java:74)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTFieldReference.getExpressionType(CPPASTFieldReference.java:188)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTFunctionCallExpression.computeExpressionType(CPPASTFunctionCallExpression.java:225)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTFunctionCallExpression.getExpressionType(CPPASTFunctionCallExpression.java:197)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.semantics.CPPSemantics.findOverloadedOperator(CPPSemantics.java:2847)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTUnaryExpression.getOverload(CPPASTUnaryExpression.java:161)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTUnaryExpression.getImplicitNames(CPPASTUnaryExpression.java:97)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTUnaryExpression.accept(CPPASTUnaryExpression.java:125)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTIfStatement.accept(CPPASTIfStatement.java:110)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTCompoundStatement.accept(CPPASTCompoundStatement.java:72)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTFunctionDefinition.accept(CPPASTFunctionDefinition.java:161)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTCompositeTypeSpecifier.accept(CPPASTCompositeTypeSpecifier.java:163)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTSimpleDeclaration.accept(CPPASTSimpleDeclaration.java:89)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTTemplateDeclaration.accept(CPPASTTemplateDeclaration.java:108)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPASTNamespaceDefinition.accept(CPPASTNamespaceDefinition.java:116)
+	at org.eclipse.cdt.internal.core.dom.parser.ASTTranslationUnit.accept(ASTTranslationUnit.java:266)
+	at org.eclipse.cdt.internal.core.pdom.PDOMWriter.extractSymbols(PDOMWriter.java:350)
+	at org.eclipse.cdt.internal.core.pdom.PDOMWriter.addSymbols(PDOMWriter.java:157)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.writeToIndex(AbstractIndexerTask.java:721)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseFile(AbstractIndexerTask.java:679)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.parseLinkage(AbstractIndexerTask.java:565)
+	at org.eclipse.cdt.internal.core.pdom.AbstractIndexerTask.runTask(AbstractIndexerTask.java:316)
+	at org.eclipse.cdt.internal.core.pdom.indexer.PDOMIndexerTask.run(PDOMIndexerTask.java:122)
+	at org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob.run(PDOMIndexerJob.java:137)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+!SESSION 2011-11-15 13:29:03.563 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=linux, ARCH=x86, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.linuxtools.product
+Command-line arguments:  -os linux -ws gtk -arch x86 -product org.eclipse.epp.package.linuxtools.product
+
+!ENTRY org.eclipse.cdt.core 1 0 2011-11-15 13:30:02.960
+!MESSAGE Indexed 'PriorityQueues' (4 sources, 13 headers) in 1.72 sec: 37 declarations; 31 references; 14 unresolved inclusions; 5 syntax errors; 24 unresolved names (26.09%)

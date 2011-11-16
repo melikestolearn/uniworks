@@ -1,0 +1,29 @@
+/****************************************************
+ * Header-Datei liste.h 							*
+ * Enthält die Klassen Cell,BaseEl und ListEl		*
+ * zur darstellung einer nach priorität sortiert	*
+ * verketteten liste.								*
+ ****************************************************/
+
+/********************************************
+ * Cell - Zeigt auf ein Objekt vom Typ Cell	*
+ *											*
+ *    Author: Tobias Mayer - Mayer25@hm.edu *
+ ********************************************/
+
+class Cell
+{
+private:
+	Cell* cellPtr;
+
+public:
+	Cell(Cell* p){cellPtr = p;};
+	virtual ~Cell();
+
+	void virtual display();
+	void setCellPtr(Cell* p){cellPtr = p;};
+	Cell* getCellPtr(){	return cellPtr;	};
+};
+using namespace Cell;
+
+

@@ -1,0 +1,69 @@
+/****************************************************
+ * Header-Datei liste.h 							*
+ * Enthält die Klassen Cell,BaseEl und ListEl		*
+ * zur darstellung der Elemente einer liste			*
+ ****************************************************/
+
+/********************************************
+ * Cell - Zeigt auf ein Objekt vom Typ Cell	*
+ *											*
+ *    Author: Tobias Mayer - Mayer25@hm.edu *
+ ********************************************/
+#include <string>
+using namespace std;
+#define null 0
+
+class Cell
+{
+private:
+	Cell* cellPtr;
+
+public:
+	Cell(Cell* p){cellPtr = p;}
+	virtual ~Cell();
+
+	void virtual display();
+	void setCellPtr(Cell* p){cellPtr = p;}
+	Cell* getCellPtr(){	return cellPtr;	}
+};
+
+/************************************************************
+ * BaseEl - darstellung einer Priorität und eines Namens	*
+ * 															*
+ *      Author: Tobias Mayer - Mayer25@hm.edu				*
+ * Usage: Verwaltung der Basis eines Listenelements			*
+ ************************************************************/
+
+class BaseEl : public Cell
+{
+private:
+	int priority;
+	string name;
+public:
+	BaseEl(int p,string n) : Cell(null){priority = p;name = n;}
+	BaseEl(int p,string n,Cell* ptr) : Cell(ptr){priority = p;name = n;}
+	void setPriority(int p){priority = p;}
+	int getPriority(){return priority;}
+	string getName () {return name;}
+	void display(){	cout << "Priorität: " << priority << "Name: "<< name << "\n";}
+};
+
+/********************************************************************
+ *  ListEl - kann zusätzliche Datentypen einer Liste definieren		*
+ *																	*
+ *	Author: Tobias Mayer - Mayer25@hm.edu							*
+ *	Usage: Verwaltung der zusätzlichen Datentypen einer Liste		*
+ ********************************************************************/
+
+class ListEl : public BaseEl
+{
+private:
+	int additional;
+public:
+	ListEl(int a,int priority,string name) : BaseEl(priority,name) {additional = a;}
+	ListEl(int a,int priority,string name,Cell* ptr) : BaseEl(priority,name,ptr){additional = a;}
+	void display(){	cout << priority << name << additional << "\n";	}
+};
+
+
+

@@ -1,0 +1,14 @@
+/****************************************************
+ * Header-Datei liste.h 							*
+ * Enthält die Klassen Cell,BaseEl und ListEl		*
+ * zur darstellung einer nach priorität sortiert	*
+ * verketteten liste.								*
+ ****************************************************/
+
+#ifndef LISTE_H_
+#define LISTE_H_
+
+
+
+
+#endif /* LISTE_H_ */

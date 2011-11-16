@@ -1,0 +1,52 @@
+/****************************************************
+ * Header-Datei liste.h 							*
+ * Enthält die Klassen Cell,BaseEl und ListEl		*
+ * zur darstellung einer nach priorität sortiert	*
+ * verketteten liste.								*
+ ****************************************************/
+
+/********************************************
+ * Cell - Zeigt auf ein Objekt vom Typ Cell	*
+ *											*
+ *    Author: Tobias Mayer - Mayer25@hm.edu *
+ ********************************************/
+
+class Cell
+{
+private:
+	Cell* cellPtr;
+
+public:
+	Cell(Cell* p){cellPtr = p;};
+	virtual ~Cell();
+
+	void virtual display();
+	void setCellPtr(Cell* p){cellPtr = p;};
+	Cell* getCellPtr(){	return cellPtr;	};
+};
+using namespace Cell;
+
+/************************************************************
+ * BaseEl - darstellung einer Priorität und eines Namens	*
+ * 															*
+ *      Author: Tobias Mayer - Mayer25@hm.edu				*
+ * Usage: Verwaltung der Basis eines Listenelements			*
+ ************************************************************/
+#include <string>
+using namespace string;
+
+typdef int PRIORITY;		//Datentyp von priority
+class BaseEl : public Cell
+{
+private:
+	PRIORITY priority;
+	string name;
+public:
+	BaseEl(PRIORITY p,String n) : Cell(null){priority = p;name = n;}
+	BaseEl(PRIORITY p,String n,Cell* ptr) : Cell(ptr){priority = p;name = n;}
+	void display(){
+		std::cout << priority << "\n" << name << endl;
+	}
+};
+
+

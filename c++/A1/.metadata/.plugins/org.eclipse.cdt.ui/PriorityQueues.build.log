@@ -1,0 +1,12 @@
+
+**** Build of configuration Debug for project PriorityQueues ****
+
+make all 
+Building file: ../PriorityQueue/PrioQueue.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"PriorityQueue/PrioQueue.d" -MT"PriorityQueue/PrioQueue.d" -o "PriorityQueue/PrioQueue.o" "../PriorityQueue/PrioQueue.cpp"
+../PriorityQueue/PrioQueue.cpp:17: error: expected ‘;’ before ‘PrioQueue’
+../PriorityQueue/PrioQueue.cpp:24: error: expected ‘;’ before ‘}’ token
+make: *** [PriorityQueue/PrioQueue.o] Error 1
+
+**** Build Finished ****

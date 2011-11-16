@@ -1,0 +1,27 @@
+/********************************************************************************
+ * PrioQueue - Ist eine linear geordnete Menge von Atomen						*
+ * 			 - Wird als inhomogene, sortierte verkettete Liste implementiert	*
+ * 			 																	*
+ *      Author: Tobias Mayer - Mayer25@hm.edu									*
+ *      																		*
+ * Usage: In Krankenhäusern kann damit eine Patienten-Liste angelegt werden		*
+ * 		  welche e Patient nach deren Priorität sortiert.     					*
+ * ******************************************************************************/
+#include "liste.h"
+
+class PrioQueue
+{
+private:
+	int size;
+	Cell* ptr;
+public:
+	PrioQueue(){size = 0;};			//Ctor
+	PrioQueue(int s,Cell* p){size = s; ptr = p;}			//CCtor
+	PrioQueue& operator=(const PrioQueue& ref) //ZuweisungsOperator
+	Create()//erzeugt eine leere Priority Queue
+	Insert()// fügt ein Atom in die Priority Queue ein
+	DeleteMax()// entfernt das gröte Atom aus der Priority Queue
+	display()
+	~PrioQueue()		//DCtor
+	};
+

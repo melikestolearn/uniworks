@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;PriorityQueues/PriorityQueue/ListEl&apos; to &apos;ListEl.cpp&apos;" description="Rename resource &apos;ListEl&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="PriorityQueue/ListEl" name="ListEl.cpp" stamp="1319612125761" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;PriorityQueues/PriorityQueue/PriorityQueue.cpp&apos; to &apos;PrioQueue.cpp&apos;" description="Rename resource &apos;PriorityQueue.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="PriorityQueue/PriorityQueue.cpp" name="PrioQueue.cpp" stamp="1319612414559" updateReferences="true"/>
+</session>

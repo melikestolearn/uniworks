@@ -1,0 +1,19 @@
+/********************************************
+ * Cell - Zeigt auf ein Objekt vom Typ Cell	*
+ *											*
+ *    Author: Tobias Mayer - Mayer25@hm.edu *
+ ********************************************/
+
+class Cell
+{
+private:
+	Cell* cellPtr;
+
+public:
+	virtual ~Cell();
+	Cell(Cell* p){cellPtr = p;};
+	void virtual display();
+	void setCellPtr(Cell* p){cellPtr = p;};
+	Cell* getCellPtr(){	return cellPtr;	};
+};
+
