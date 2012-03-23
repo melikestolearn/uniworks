@@ -1,0 +1,28 @@
+package connection;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import filter.WordChangeFilter;
+
+public class Proxy {
+	ServerSocket routingS;
+	Socket internet;
+	public Proxy(String adress,int port) throws IOException{
+		routingS = new ServerSocket(port);
+		internet = new Socket(adress, 80);		
+	}
+	public void run(String str,String str2) throws IOException{
+		Socket s = routingS.accept();
+		InputStreamReader isr = new InputStreamReader(s.getInputStream());
+		WordChangeFilter wcf = new WordChangeFilter(isr,str,str2);
+		PrintWriter pw = new PrintWriter(internet.getOutputStream());
+		String tmp;
+		while((tmp = wcf.readLine())!=null){
+			pw.write()
+		}
+	}
+}

@@ -1,0 +1,8 @@
+package connection;
+
+public class Proxy {
+	Server routingS;
+	public Proxy(String adress,int port){
+		routingS = new Server(port);
+	}
+}

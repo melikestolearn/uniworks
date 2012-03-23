@@ -1,0 +1,15 @@
+package main;
+import connection.Proxy;
+import java.io.IOException;
+import java.net.Socket;
+
+
+
+public class Main {
+	public static void main(String[] args) throws IOException{
+		Proxy proxy = new Proxy("www.hm.edu",8082);
+		Socket client = new Socket ("127.0.0.1",80);
+		proxy.run("Informatik", "Rechnerwissenschaften");
+		
+	}
+}

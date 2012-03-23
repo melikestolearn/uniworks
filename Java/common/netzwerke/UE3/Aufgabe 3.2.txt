@@ -1,0 +1,7 @@
+14,4Mbit/s = 14745,6Kbit/s
+14745,6(kbit/s)/200nutzer = 73,728(Kbit/s) per nutzer
+t = 100kbit / 73,728(kbit/s) = 1,356336805555......s , da die Zeit für alle gleichzeitig verstreicht is das die Gesamtzeit für alle Nutzer.
+
+200nutzer/60sek = 20/6
+14745,6(kbit/s)/(20/6)=4423,68(Kbit/s)per nutzer
+t = 100kbit/ 4423,68(kbit/s) = 0,0226056s
