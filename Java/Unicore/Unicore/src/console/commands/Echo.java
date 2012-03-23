@@ -27,4 +27,11 @@ public class Echo extends ConsoleCommand {
 		
 		base.getConsoleHead().informExeEnd();
 	}
+
+	@Override
+	public String controlSyntax() {
+		if(commandArgs.length>1)
+			return "Use echo without arguments";
+		return null;
+	}
 }

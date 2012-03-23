@@ -1,6 +1,6 @@
 package connection;
 
-import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -13,51 +13,55 @@ import java.net.UnknownHostException;
 import main.Base;
 
 public class Connector {
-	public static final int defaultPort = 22841;
+	public static final int DEFAULT_PORT = 22841;
 
 	private final Base base;
+	private int usedPort;
 	
 	private Socket friendSocket;
+	private InputStream friendInputStream;
+	private OutputStream friendOutputStream;
 	
-	private int usedPort;
-
-//	private InputStream input;
-//	private OutputStream output;
+	private FileOutputStream logger;
 	
-	
-	private PipedInputStream consolePipedInput;
-	private PipedOutputStream consolePipedOutput;
-	
-	private BufferedReader myKeyboardReader;
+	private final PipedInputStream consolePipedInput;
+	private final PipedOutputStream consolePipedOutput;
 	
 	public Connector(Base b) throws IOException {
-		//myKeyboardReader = new BufferedReader(new InputStreamReader(myInput));
-		
 		base = b;
+		
+		//logger = new FileOutputStream(base.getLog());
 		
 		consolePipedInput = new PipedInputStream();
 		consolePipedOutput = new PipedOutputStream();
-		
 		consolePipedInput.connect(consolePipedOutput);
 	}
-	
 	public void host() throws IOException {
-		final ServerSocket myServer = new ServerSocket(defaultPort);
+		host(DEFAULT_PORT);
+	}
+	
+	public void host(int port) throws IOException {
+		final ServerSocket myServer = new ServerSocket(port);
 		
+		usedPort = port;
 		friendSocket = myServer.accept();
+		friendInputStream = friendSocket.getInputStream();
+		friendOutputStream = friendSocket.getOutputStream();
 		
 		myServer.close();
 	}
 	
-	public void connect(String hostname) throws UnknownHostException, IOException {
-		friendSocket = new Socket(hostname, defaultPort);
+	public void join(String hostname) throws UnknownHostException, IOException {
+		friendSocket = new Socket(hostname, usedPort);
+		friendInputStream = friendSocket.getInputStream();
+		friendOutputStream = friendSocket.getOutputStream();
 		
-		friendSocket.getOutputStream().write(1);
+		friendOutputStream.write(1);
 	}
-	public String readLineFromKeyboard() throws IOException {
-		return myKeyboardReader.readLine();
-	}
+	
 	public void disconnect() throws IOException {
+		friendInputStream.close();
+		friendOutputStream.close();
 		friendSocket.close();
 	}
 	
@@ -66,6 +70,9 @@ public class Connector {
 	}
 	public OutputStream getConsoleOutput() {
 		return consolePipedOutput;
+	}
+	public FileOutputStream getFileOutput() {
+		return logger;
 	}
 	
 }

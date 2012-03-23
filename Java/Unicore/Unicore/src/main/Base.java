@@ -2,7 +2,9 @@ package main;
 
 import gui.console.Console;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 import connection.Connector;
 import console.ConsoleHead;
@@ -20,9 +22,14 @@ public class Base {
 	
 	private Console console;
 
+	private File log;
+	
 	public Base() {
 		try {
 			connector = new Connector(this);
+			
+			final String[] d = new Date(System.currentTimeMillis()).toString().split("\\s+");
+			log = new File("Log"+d[2]+d[1]+(d[3].replace(":", ".")).substring(0,5));
 		} catch (IOException e) { throw new RuntimeException(e); }
 
 		consoleHead = new ConsoleHead(this);
@@ -50,10 +57,17 @@ public class Base {
 		console.printAt(output, true);
 	}
 	
+	/** Sets the user name.
+	 * @param newName The new user name.
+	 */
 	public void setUsername(String newName) {
 		username = newName;
 		consoleHead.changeUserPrompt(null);
 	}
+	public void log(String logMessage) {
+		
+	}
+	
 	
 	public ConsoleHead getConsoleHead() {
 		return consoleHead;
@@ -66,5 +80,8 @@ public class Base {
 	}
 	public String getUsername() {
 		return username;
+	}
+	public File getLog() {
+		return log;
 	}
 }

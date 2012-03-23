@@ -14,6 +14,8 @@ public class ConsoleHead {
 	public static final Map<String, String> CONSOLE_COMMANDS = new TreeMap<String, String>();;
 	
 	static {
+		CONSOLE_COMMANDS.put("hello", "Hello");
+		CONSOLE_COMMANDS.put("hi", "Hello");
 		CONSOLE_COMMANDS.put("test", "Test");
 		CONSOLE_COMMANDS.put("showp", "ShowPicture");
 		CONSOLE_COMMANDS.put("helpc", "Help");
@@ -32,19 +34,23 @@ public class ConsoleHead {
 	public ConsoleHead(Base b) {
 		base = b;
 		
-		//console = b.getConsoleGui();	// May be null at start
 		userPrompt = base.getUsername() +prompt[0]+prompt[1]+prompt[2]+prompt[3];
 	}
 
 	public synchronized void exe(String[] consArgs) {
 		try {
-			String com = CONSOLE_COMMANDS.get(consArgs[0]);
+			String com = CONSOLE_COMMANDS.get(consArgs[0].toLowerCase());
 			
 			Class<?> exeClass = Class.forName(ConsoleCommand.COMMANDS_PACKAGE_NAME +"." +com);
 			ConsoleCommand command = (ConsoleCommand) exeClass.getConstructor(base.getClass(), consArgs.getClass()).newInstance(base, consArgs);
-			command.start();
 			
-			//Class.forName("Ljava.lang.String")consArgs.getClass()
+			final String synt = command.controlSyntax();
+			if(synt!=null) {
+				new MessageDummy(synt).start();
+				return;
+			}
+				
+			command.start();
 			
 		} catch (ClassNotFoundException e) 
 		{
@@ -60,11 +66,10 @@ public class ConsoleHead {
 	
 	public void informExeEnd() {
 		console.printAt(userPrompt, false);
-		//console.printPrompt();
 	}
 	public void changeUserPrompt(String newPrompt) {
 		if(newPrompt==null)
-			userPrompt = base.getUsername() +userPrompt;
+			userPrompt = base.getUsername() +prompt[0]+prompt[1]+prompt[2]+prompt[3];
 		else
 			userPrompt = base.getUsername() +newPrompt;
 	}

@@ -21,7 +21,7 @@ public class EstConnection extends ConsoleCommand {
 					if(commandArgs.length<2)
 						throw new Exception("Illegal command.");
 
-					base.getConnector().connect(commandArgs[1]);
+					base.getConnector().join(commandArgs[1]);
 					gotInput = true;
 				}
 				else if(com.equals("host")) {

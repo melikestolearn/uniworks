@@ -92,7 +92,12 @@ public class Console extends JFrame {
         });
     }
     
+    /** The handler for keys typed.
+     * @param evt The KeyEvent occurred.
+     */
 	private void consoleKeyTyped(KeyEvent evt){
+		if(evt.getKeyCode()==KeyEvent.VK_CONTROL)
+			return;
 		if(consoleArea.getCaretPosition()<lastCommandPosition)
 			consoleArea.setCaretPosition(consoleArea.getDocument().getLength());
 		if(evt.getKeyCode()==KeyEvent.VK_ENTER) {
@@ -104,13 +109,17 @@ public class Console extends JFrame {
     		}
     		else
     			execute(input);
+    		return;
     	}
-		else if(evt.getKeyCode()==KeyEvent.VK_BACK_SPACE) 
+		if(evt.getKeyCode()==KeyEvent.VK_BACK_SPACE) {
 			if(consoleArea.getDocument().getLength()-lastCommandPosition<1)
 				evt.consume();
-		
+		}
     }
 
+	/** Reads a line from the Console.
+	 * @return The line read.
+	 */
 	private String inputHandler() {
 		String line = null;
 		
@@ -131,6 +140,11 @@ public class Console extends JFrame {
 		consoleHead.exe(command.split("\\s+"));
 	}
 	
+	/** Reads one line from the Console, in real time.
+	 * Blocks and waits for the user to press enter.
+	 * @return The line typed.
+	 * @throws IOException If an io error occurs.
+	 */
 	public synchronized String read() throws IOException {
 		inputOn = true;
 		String in = new BufferedReader(new InputStreamReader(base.getConnector().getConsoleInput())).readLine();
@@ -138,6 +152,11 @@ public class Console extends JFrame {
 		return in;
 	}
 	
+	/** Prints a String on the Console.
+	 * Set to print linefeed or not.
+	 * @param output The String to print.
+	 * @param linefeed True to append linefeed, false to not.
+	 */
 	public synchronized void printAt(String output, boolean linefeed) {
 		if(linefeed)
 			consoleArea.append(output +"\n");
@@ -146,6 +165,8 @@ public class Console extends JFrame {
 		lastCommandPosition = consoleArea.getDocument().getLength();
 		consoleArea.setCaretPosition(lastCommandPosition);
 	}
+	
+	/** Not working yet. */
 	public synchronized void printPrompt() {
 		
 		consoleArea.setForeground(Color.GREEN);

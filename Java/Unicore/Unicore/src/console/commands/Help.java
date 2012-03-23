@@ -11,10 +11,21 @@ public class Help extends ConsoleCommand {
 	
 	public void run() {
 		
-		base.printAtConsole("\n Commands: \n");
-		base.printAtConsole(base.getConsoleHead().getCommands().keySet().toString());
+		helpc();
 		
 		base.getConsoleHead().informExeEnd();
+	}
+	
+	private void helpc() {
+		base.printAtConsole("\nCommands:");
+		for(String c: base.getConsoleHead().getCommands().keySet())
+			base.printAtConsole("\t"+c);
+	}
+
+	@Override
+	public String controlSyntax() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

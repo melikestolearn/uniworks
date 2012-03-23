@@ -15,5 +15,11 @@ public class Test extends ConsoleCommand {
 		
 		base.getConsoleHead().informExeEnd();
 	}
+
+	@Override
+	public String controlSyntax() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
