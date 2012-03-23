@@ -1,8 +1,0 @@
-1)
-a) Der Browser benutzt HTTP 1.1
-b) http://a.fsdn.com/sd/topics/linux_64.png
-c) Ja: Accept-Encoding: gzip...
-d)
-
-2)
-

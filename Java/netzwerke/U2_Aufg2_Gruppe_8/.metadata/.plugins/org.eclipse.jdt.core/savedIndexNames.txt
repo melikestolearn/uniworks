@@ -1,2 +1,0 @@
-INDEX VERSION 1.126+C:\Users\Elias\uniworks\java\common\U2_Aufg2_Gruppe_8\.metadata\.plugins\org.eclipse.jdt.core
-2396336971.index
